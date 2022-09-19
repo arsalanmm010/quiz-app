@@ -6,7 +6,7 @@ export const fetchQuestions = async (amount: number, difficulty: Difficulty) => 
    return data.results.map((question: Question) => (
       {
          ...question,
-         answers: shuffleArray([...question.incorrect_answers, question.correctAnswer])
+         answers: shuffleArray([...question.incorrect_answers, question.correct_answer])
       }
    ))
 }
@@ -17,7 +17,7 @@ export enum Difficulty {
    HARD = 'hard'
 } export type Question = {
    category: string;
-   correctAnswer: string;
+   correct_answer: string;
    difficulty: string;
    incorrect_answers: string[];
    question: string;
